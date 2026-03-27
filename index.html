@@ -3,31 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AppHub | Geliştirici Paylaşım Platformu</title>
+    <title>Emre Doğan | Stratejist & Geliştirici</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #0f172a; color: white; }
-        .app-card { background: #1e293b; transition: 0.3s; }
-        .app-card:hover { transform: translateY(-5px); border-color: #38bdf8; }
+        /* Loş ve Karanlık Arka Plan */
+        body { background-color: #030712; color: #e5e7eb; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        
+        /* Ortadaki Pankart (Card) Efekti */
+        .loş-pankart { background: #111827; border: 1px solid #1f2937; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); }
+        
+        /* Buton Parlama Efekti */
+        .glow-btn { transition: 0.3s; }
+        .glow-btn:hover { box-shadow: 0 0 10px #38bdf8; transform: translateY(-2px); }
+        
+        /* Profil Fotoğrafı Çerçevesi */
+        .profile-pic { border: 3px solid #1f2937; box-shadow: 0 0 15px rgba(56, 189, 248, 0.3); }
     </style>
 </head>
-<body class="p-5">
-    <header class="text-center py-10">
-        <h1 class="text-4xl font-bold text-sky-400">AppHub</h1>
-        <p class="text-slate-400 mt-2">Play Console ücreti derdine son! Uygulamanı paylaş, kitlelere ulaş.</p>
-    </header>
+<body class="p-5 min-h-screen flex items-center justify-center">
 
-    <main class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="app-card p-6 rounded-2xl border border-slate-700">
-            <h2 class="text-xl font-semibold">SoundRise</h2>
-            <p class="text-slate-400 text-sm my-3">Müzik ve ses deneyimini zirveye taşıyan yeni nesil oynatıcı.</p>
-            <a href="#" class="bg-sky-500 hover:bg-sky-600 px-4 py-2 rounded-lg text-sm font-bold block text-center">İndir (APK)</a>
+    <div class="loş-pankart p-10 rounded-3xl max-w-xl w-full text-center">
+        
+        <img src="profil.jpg" alt="Emre Doğan" class="profile-pic w-32 h-32 rounded-full mx-auto mb-6 object-cover">
+        
+        <h1 class="text-4xl font-extrabold text-white">EMRE DOĞAN</h1>
+        <p class="text-sky-400 mt-1 text-sm font-semibold tracking-widest uppercase">PR & REKLAMCILIK ÖĞRENCİSİ | STRATEJİST</p>
+        
+        <p class="text-slate-400 mt-4 text-sm max-w-sm mx-auto">
+            Gaziantep'ten dünyaya açılan dijital stratejiler ve yaratıcı çözümler geliştiriyorum. İletişim teknolojilerini kullanarak kitlelere ulaşmayı hedefliyorum.
+        </p>
+        
+        <div class="flex justify-center gap-4 mt-8 mb-10">
+            <a href="https://linkedin.com/in/e7emre" target="_blank" class="glow-btn bg-slate-800 p-3 rounded-xl">
+                <img src="https://cdn.simpleicons.org/linkedin/white" alt="LinkedIn" class="w-6 h-6">
+            </a>
+            <a href="https://github.com/e7emre-dev" target="_blank" class="glow-btn bg-slate-800 p-3 rounded-xl">
+                <img src="https://cdn.simpleicons.org/github/white" alt="GitHub" class="w-6 h-6">
+            </a>
+            <a href="mailto:emre@example.com" class="glow-btn bg-slate-800 p-3 rounded-xl">
+                <img src="https://cdn.simpleicons.org/minutemailer/white" alt="E-posta" class="w-6 h-6">
+            </a>
         </div>
         
-        </main>
+        <div class="text-left mt-6 space-y-4">
+            <h2 class="text-lg font-bold text-white tracking-tight">GELİŞTİRDİĞİM PROJELER</h2>
+            
+            <a href="#" target="_blank" class="glow-btn bg-sky-600 block px-5 py-3 rounded-xl text-center text-sm font-bold text-white">
+                SoundRise (Müzik Oynatıcı) - APK İndir
+            </a>
+            <a href="#" target="_blank" class="glow-btn bg-sky-600 block px-5 py-3 rounded-xl text-center text-sm font-bold text-white">
+                AppHub (Geliştirici Galerisi) - Web Sitem
+            </a>
+        </div>
 
-    <footer class="text-center py-20 text-slate-500 text-sm">
-        &copy; 2026 Stratejist Emre | AppHub Projesi
-    </footer>
+        <div class="mt-12 border-t border-slate-800 pt-8">
+            <h3 class="text-slate-500 text-xs mb-3">GÜNÜN STRATEJİSİNİ AL</h3>
+            <button id="strategyBtn" class="glow-btn bg-slate-800 border border-slate-700 px-6 py-3 rounded-2xl text-sm font-semibold text-slate-300">
+                <img src="https://cdn.simpleicons.org/googleanalytics/sky" alt="Analytics" class="w-4 h-4 inline-block mr-2 -mt-1">
+                Bir İpucu Göster
+            </button>
+            <p id="strategyOutput" class="text-sky-300 mt-5 text-sm italic font-medium min-h-[40px] px-4"></p>
+        </div>
+
+    </div>
+
+    <script>
+        const strategies = [
+            "PR Stratejisi: Kitleye ulaşmak için 'ne' söylediğin değil, 'nasıl' söylediğin önemlidir.",
+            "Reklamcılık İpucu: Merak uyandırmak, doğrudan bilgi vermekten daha güçlüdür.",
+            "Dijital İletişim: Sosyal medya bir monolog değil, bir diyalog alanıdır.",
+            "Stratejik Düşünce: Rakibini değil, kitleyi analiz et.",
+            "Gaziantep'ten İpucu: Sabır, en karmaşık stratejilerin bile anahtarıdır."
+        ];
+
+        document.getElementById('strategyBtn').addEventListener('click', function() {
+            const randomStrategy = strategies[Math.floor(Math.random() * strategies.length)];
+            const output = document.getElementById('strategyOutput');
+            
+            // Yavaşça görünme efekti
+            output.style.opacity = 0;
+            setTimeout(() => {
+                output.innerText = randomStrategy;
+                output.style.opacity = 1;
+            }, 300);
+        });
+    </script>
 </body>
 </html>
